@@ -1,8 +1,18 @@
 import messageImg from '../assets/message.png'
 import jobbridgeImg from '../assets/jobbride.png'
-
+import mentorpathImg from '../assets/mentorpath.png'
 
 const projects = [
+  {
+    type: 'Personal Project · Live',
+    title: 'MentorPath – Self-Paced Mentoring Platform',
+    desc: 'Complete self-paced mentoring platform where users learn through structured modules with dedicated mentor avatars. Features user authentication, video player with pictorial tutor, module completion tracking, streak counter, and milestone achievements.',
+    tech: ['React', 'Vite', 'Tailwind CSS', 'Zustand', 'React Router'],
+    github: 'https://github.com/Ernestkyei/mentorship-frontend',
+    live: 'https://mentorship-frontend-e05o.onrender.com',
+    image: mentorpathImg,
+    imageAlt: 'MentorPath platform showing course player with mentor avatar'
+  },
   {
     type: 'Personal Project',
     title: 'Full-Stack Messaging Platform',
@@ -35,24 +45,23 @@ const Projects = () => {
     <section className="py-24 px-8 max-w-5xl mx-auto" id="projects">
       <div className="section-line">Projects</div>
       <h2 className="text-4xl text-white mb-12 font-semibold">What I've built</h2>
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((p) => (
           <div 
             key={p.title} 
             className="rounded-sm card-hover flex flex-col bg-white/5 border border-white/10 overflow-hidden hover:border-blue-500/30 transition-all duration-300"
           >
             {/* Professional Image Section with overlay */}
-            <div className="relative w-full h-56 overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800">
+            <div className="relative w-full h-48 overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800">
               <img 
                 src={p.image} 
                 alt={p.imageAlt || p.title}
                 onError={handleImageError}
                 className="object-cover w-full h-full hover:scale-105 transition-transform duration-700 ease-in-out"
               />
-              {/* Optional gradient overlay for better text readability if needed */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
               
-              {/* Optional: Live badge */}
+              {/* Live badge */}
               {p.live && (
                 <div className="absolute top-3 right-3">
                   <span className="bg-green-500/90 text-white text-xs px-2 py-1 rounded-full flex items-center gap-1">
@@ -64,12 +73,12 @@ const Projects = () => {
             </div>
             
             {/* Content */}
-            <div className="p-6 flex flex-col gap-4 flex-1">
+            <div className="p-5 flex flex-col gap-3 flex-1">
               <div>
                 <div className="text-xs text-blue-400 tracking-widest uppercase mb-2 font-semibold">
                   {p.type}
                 </div>
-                <h3 className="text-xl text-white font-semibold mb-3">
+                <h3 className="text-lg text-white font-semibold mb-2">
                   {p.title}
                 </h3>
                 <p className="text-white/50 text-sm leading-relaxed font-light line-clamp-3">
@@ -78,11 +87,11 @@ const Projects = () => {
               </div>
               
               {/* Tech Stack */}
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1.5">
                 {p.tech.map(t => (
                   <span 
                     key={t} 
-                    className="text-xs px-3 py-1 rounded-full text-white/40 bg-white/5 border border-white/10 hover:border-blue-500/30 hover:text-white/70 transition-all"
+                    className="text-xs px-2 py-1 rounded-full text-white/40 bg-white/5 border border-white/10 hover:border-blue-500/30 hover:text-white/70 transition-all"
                   >
                     {t}
                   </span>
@@ -90,13 +99,13 @@ const Projects = () => {
               </div>
               
               {/* Buttons */}
-              <div className="flex gap-3 mt-2">
+              <div className="flex gap-2 mt-2">
                 {p.live && (
                   <a 
                     href={p.live} 
                     target="_blank" 
                     rel="noreferrer"
-                    className="flex items-center gap-2 px-5 py-2.5 bg-blue-500 text-white text-xs font-medium tracking-wide hover:bg-blue-600 hover:shadow-lg transition-all rounded-sm"
+                    className="flex items-center gap-1.5 px-3 py-2 bg-blue-500 text-white text-xs font-medium tracking-wide hover:bg-blue-600 hover:shadow-lg transition-all rounded-sm"
                   >
                     <span>🌐</span>
                     Live Demo →
@@ -106,7 +115,7 @@ const Projects = () => {
                   href={p.github} 
                   target="_blank" 
                   rel="noreferrer"
-                  className="flex items-center gap-2 px-5 py-2.5 text-xs font-medium tracking-wide text-white/60 hover:text-white transition-all rounded-sm border border-white/20 hover:border-white/40 hover:bg-white/5"
+                  className="flex items-center gap-1.5 px-3 py-2 text-xs font-medium tracking-wide text-white/60 hover:text-white transition-all rounded-sm border border-white/20 hover:border-white/40 hover:bg-white/5"
                 >
                   <span>📂</span>
                   GitHub →

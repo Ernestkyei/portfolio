@@ -30,7 +30,7 @@ const Hero = () => (
       </div>
 
       <div className="animate-fade-up delay-500 flex items-center justify-center gap-12 mt-20 pt-10 border-t border-white/5">
-        {[['2', 'Projects Built'], ['Full', 'Stack'], ['Live', 'Deployment']].map(([n, l]) => (
+        {[['4', 'Projects Built'], ['Full', 'Stack'], ['Live', 'Deployment']].map(([n, l]) => (
           <div key={l} className="text-center">
             <div className="font-display text-3xl text-white mb-1">{n}</div>
             <div className="text-xs text-white/40 tracking-widest uppercase">{l}</div>
