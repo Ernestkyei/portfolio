@@ -1,4 +1,6 @@
 import messageImg from '../assets/message.png'
+import jobbridgeImg from '../assets/jobbride.png'
+
 
 const projects = [
   {
@@ -18,7 +20,7 @@ const projects = [
     tech: ['C# / Blazor', '.NET 9', 'Entity Framework', 'SQLite', 'Azure'],
     github: 'https://github.com/Ernestkyei/jobbridge',
     live: 'https://jobbridge-team06-d5agcya8cka3agd8.northcentralus-01.azurewebsites.net',
-    image: 'https://placehold.co/600x400/1a1a2e/4a90e2?text=JobBridge+Preview',
+    image: jobbridgeImg,
     imageAlt: 'JobBridge job search platform interface showing job listings'
   },
 ]
