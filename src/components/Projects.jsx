@@ -1,8 +1,19 @@
 import messageImg from '../assets/message.png'
 import jobbridgeImg from '../assets/jobbride.png'
 import mentorpathImg from '../assets/mentorpath.png'
+import databundleImg from '../assets/databundle.png'
 
 const projects = [
+  {
+    type: 'Personal Project · Live',
+    title: 'DataBundle Marketplace – E-Commerce Platform',
+    desc: 'Full-stack e-commerce platform for purchasing mobile data bundles across MTN, Vodafone, AirtelTigo, and Glo in Ghana. Features user authentication, Paystack payment integration, real-time stock management, and instant data delivery. Admin dashboard for managing bundles, orders, and users.',
+    tech: ['React', 'Node.js', 'PostgreSQL', 'Prisma', 'Paystack', 'Tailwind CSS', 'Render'],
+    github: 'https://github.com/Ernestkyei/server',
+    live: 'https://client-0eyf.onrender.com',
+    image: databundleImg,
+    imageAlt: 'DataBundle marketplace showing mobile data bundles for MTN, Vodafone, AirtelTigo, and Glo'
+  },
   {
     type: 'Personal Project · Live',
     title: 'MentorPath – Self-Paced Mentoring Platform',
