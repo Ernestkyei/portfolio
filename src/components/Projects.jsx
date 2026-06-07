@@ -2,6 +2,7 @@ import messageImg from '../assets/message.png'
 import jobbridgeImg from '../assets/jobbride.png'
 import mentorpathImg from '../assets/mentorpath.png'
 import databundleImg from '../assets/databundle.png'
+import trackImg from '../assets/track.png'
 
 const projects = [
   {
@@ -23,6 +24,16 @@ const projects = [
     live: 'https://mentorship-frontend-e05o.onrender.com',
     image: mentorpathImg,
     imageAlt: 'MentorPath platform showing course player with mentor avatar'
+  },
+  {
+    type: 'Personal Project · Live',
+    title: 'Tracking System – Package Delivery Tracker',
+    desc: 'Package delivery tracking system where customers scan QR codes on their packages to confirm delivery. Real-time updates sync to the system instantly. Includes driver portal for delivery management and admin dashboard for monitoring all deliveries and ensuring secure transactions.',
+    tech: ['React', 'Leaflet', 'Socket.io', 'Node.js', 'MongoDB', 'Express', 'QR Code', 'JWT'],
+    github: 'https://github.com/Ernestkyei/tracking-app',
+    live: 'https://portfolio-7vu4.onrender.com',
+    image: trackImg,
+    imageAlt: 'Package delivery tracking system with QR code scanning'
   },
   {
     type: 'Personal Project',
@@ -62,7 +73,6 @@ const Projects = () => {
             key={p.title} 
             className="rounded-sm card-hover flex flex-col bg-white/5 border border-white/10 overflow-hidden hover:border-blue-500/30 transition-all duration-300"
           >
-            {/* Professional Image Section with overlay */}
             <div className="relative w-full h-48 overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800">
               <img 
                 src={p.image} 
@@ -72,7 +82,6 @@ const Projects = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
               
-              {/* Live badge */}
               {p.live && (
                 <div className="absolute top-3 right-3">
                   <span className="bg-green-500/90 text-white text-xs px-2 py-1 rounded-full flex items-center gap-1">
@@ -83,7 +92,6 @@ const Projects = () => {
               )}
             </div>
             
-            {/* Content */}
             <div className="p-5 flex flex-col gap-3 flex-1">
               <div>
                 <div className="text-xs text-blue-400 tracking-widest uppercase mb-2 font-semibold">
@@ -97,7 +105,6 @@ const Projects = () => {
                 </p>
               </div>
               
-              {/* Tech Stack */}
               <div className="flex flex-wrap gap-1.5">
                 {p.tech.map(t => (
                   <span 
@@ -109,7 +116,6 @@ const Projects = () => {
                 ))}
               </div>
               
-              {/* Buttons */}
               <div className="flex gap-2 mt-2">
                 {p.live && (
                   <a 
