@@ -1,12 +1,27 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import messageImg from '../assets/message.png'
-import jobbridgeImg from '../assets/jobbride.png'
-import mentorpathImg from '../assets/mentorpath.png'
-import databundleImg from '../assets/databundle.png'
-import trackImg from '../assets/track.png'
+
+import messageImg from '../assets/message.png';
+import jobbridgeImg from '../assets/jobbride.png';
+import mentorpathImg from '../assets/mentorpath.png';
+import databundleImg from '../assets/databundle.png';
+import trackImg from '../assets/track.png';
+import aiAdmin from '../assets/ai email agent admin.png';
+import aiClient from '../assets/client frontend.png';
 
 const projects = [
+  {
+    type: 'Personal Project · Live',
+    title: 'AI Email Agent – Intelligent Email Automation Platform',
+    desc: 'AI-powered email automation platform that receives and processes incoming emails, uses AI to classify messages, and routes them through automated workflows. Includes a client frontend and admin dashboard for email management, classification results, review workflows, and audit logs.',
+    github: 'https://github.com/Ernestkyei?tab=repositories',
+    live: 'https://ai-email-agent-frontend.onrender.com/',
+    admin: 'https://ai-email-agent-admin.onrender.com/login',
+    image: aiClient,
+    imageAlt: 'AI Email Agent client frontend showing intelligent email automation',
+    adminImage: aiAdmin,
+  },
+
   {
     type: 'Personal Project · Live',
     title: 'DataBundle Marketplace – E-Commerce Platform',
@@ -14,8 +29,10 @@ const projects = [
     github: 'https://github.com/Ernestkyei/server',
     live: 'https://client-0eyf.onrender.com',
     image: databundleImg,
-    imageAlt: 'DataBundle marketplace showing mobile data bundles for MTN, Vodafone, AirtelTigo, and Glo'
+    imageAlt:
+      'DataBundle marketplace showing mobile data bundles for MTN, Vodafone, AirtelTigo, and Glo',
   },
+
   {
     type: 'Personal Project · Live',
     title: 'MentorPath – Self-Paced Mentoring Platform',
@@ -23,8 +40,9 @@ const projects = [
     github: 'https://github.com/Ernestkyei/mentorship-frontend',
     live: 'https://mentorship-frontend-e05o.onrender.com',
     image: mentorpathImg,
-    imageAlt: 'MentorPath platform showing course player with mentor avatar'
+    imageAlt: 'MentorPath platform showing course player with mentor avatar',
   },
+
   {
     type: 'Personal Project · Live',
     title: 'Tracking System – Package Delivery Tracker',
@@ -32,8 +50,9 @@ const projects = [
     github: 'https://github.com/Ernestkyei?tab=repositories',
     live: 'https://swifttrack-jlib.onrender.com',
     image: trackImg,
-    imageAlt: 'Package delivery tracking system with QR code scanning'
+    imageAlt: 'Package delivery tracking system with QR code scanning',
   },
+
   {
     type: 'Personal Project',
     title: 'Full-Stack Messaging Platform',
@@ -41,8 +60,9 @@ const projects = [
     github: 'https://github.com/Ernestkyei/message-app',
     live: 'https://message-app-rpgx.onrender.com/',
     image: messageImg,
-    imageAlt: 'Messaging platform dashboard showing real-time chat interface'
+    imageAlt: 'Messaging platform dashboard showing real-time chat interface',
   },
+
   {
     type: 'Team Project · Live',
     title: 'JobBridge — Job Search Platform',
@@ -50,32 +70,37 @@ const projects = [
     github: 'https://github.com/Ernestkyei/jobbridge',
     live: 'https://jobbridge-team06-d5agcya8cka3agd8.northcentralus-01.azurewebsites.net',
     image: jobbridgeImg,
-    imageAlt: 'JobBridge job search platform interface showing job listings'
+    imageAlt: 'JobBridge job search platform interface showing job listings',
   },
-]
+];
 
 const Projects = () => {
-  const [setHoveredIndex] = useState(null)
+  const [setHoveredIndex] = useState(null);
 
   const handleImageError = (e) => {
-    e.target.src = 'https://placehold.co/600x400/1a1a2e/4a90e2?text=Preview+Coming+Soon'
-  }
+    e.target.src =
+      'https://placehold.co/600x400/1a1a2e/4a90e2?text=Preview+Coming+Soon';
+  };
 
   return (
     <section className="py-20 px-6 max-w-6xl mx-auto" id="projects">
       <div className="mb-10">
-        <span className="text-blue-400 text-sm tracking-widest uppercase font-medium">Projects</span>
+        <span className="text-blue-400 text-sm tracking-widest uppercase font-medium">
+          Projects
+        </span>
+
         <h2 className="text-3xl text-white mt-2 font-semibold">
           What I've built
+
           <span className="block text-sm text-white/40 font-light mt-1">
             {projects.length} projects and counting
           </span>
         </h2>
       </div>
-      
+
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
         {projects.map((p, index) => (
-          <motion.div 
+          <motion.div
             key={p.title}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -87,12 +112,13 @@ const Projects = () => {
           >
             {/* Image */}
             <div className="relative w-full h-44 bg-gray-800 overflow-hidden">
-              <img 
-                src={p.image} 
+              <img
+                src={p.image}
                 alt={p.imageAlt || p.title}
                 onError={handleImageError}
                 className="object-cover w-full h-full"
               />
+
               {p.live && (
                 <span className="absolute top-2 right-2 bg-green-500/90 text-white text-xs px-2 py-0.5 rounded-full flex items-center gap-1">
                   <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
@@ -100,34 +126,48 @@ const Projects = () => {
                 </span>
               )}
             </div>
-            
+
             {/* Content */}
             <div className="p-4">
               <span className="text-xs text-blue-400 tracking-wider uppercase font-medium">
                 {p.type}
               </span>
+
               <h3 className="text-white font-semibold mt-1.5 mb-2 text-lg">
                 {p.title}
               </h3>
+
               <p className="text-white/50 text-sm leading-relaxed mb-3 line-clamp-3">
                 {p.desc}
               </p>
-              
+
               {/* Buttons */}
-              <div className="flex gap-2">
+              <div className="flex gap-2 flex-wrap">
                 {p.live && (
-                  <a 
-                    href={p.live} 
-                    target="_blank" 
+                  <a
+                    href={p.live}
+                    target="_blank"
                     rel="noreferrer"
                     className="text-sm px-3 py-1.5 bg-blue-500 hover:bg-blue-600 text-white rounded transition-colors"
                   >
                     Live Demo
                   </a>
                 )}
-                <a 
-                  href={p.github} 
-                  target="_blank" 
+
+                {p.admin && (
+                  <a
+                    href={p.admin}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-sm px-3 py-1.5 bg-purple-500 hover:bg-purple-600 text-white rounded transition-colors"
+                  >
+                    Admin
+                  </a>
+                )}
+
+                <a
+                  href={p.github}
+                  target="_blank"
                   rel="noreferrer"
                   className="text-sm px-3 py-1.5 border border-white/20 text-white/60 hover:text-white hover:border-white/40 rounded transition-all"
                 >
@@ -138,12 +178,12 @@ const Projects = () => {
           </motion.div>
         ))}
       </div>
-      
+
       {/* View all link */}
       <div className="text-center mt-10">
-        <a 
-          href="https://github.com/Ernestkyei" 
-          target="_blank" 
+        <a
+          href="https://github.com/Ernestkyei"
+          target="_blank"
           rel="noreferrer"
           className="text-white/40 hover:text-white transition-colors text-sm inline-flex items-center gap-1"
         >
@@ -151,7 +191,8 @@ const Projects = () => {
         </a>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Projects
+export default Projects;
+
