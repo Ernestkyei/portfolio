@@ -1,13 +1,15 @@
+
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-
 import messageImg from '../assets/message.png';
+import adminDashboardMessagingApp from '../assets/adminDashbaordMessagingApp.png';
 import jobbridgeImg from '../assets/jobbride.png';
 import mentorpathImg from '../assets/mentorpath.png';
 import databundleImg from '../assets/databundle.png';
 import trackImg from '../assets/track.png';
 import aiAdmin from '../assets/ai email agent admin.png';
 import aiClient from '../assets/client frontend.png';
+import Admindatabundle from '../assets/Admindatabundle.png';
 
 const projects = [
   {
@@ -18,20 +20,27 @@ const projects = [
     live: 'https://ai-email-agent-frontend.onrender.com/',
     admin: 'https://ai-email-agent-admin.onrender.com/login',
     image: aiClient,
-    imageAlt: 'AI Email Agent client frontend showing intelligent email automation',
+    imageAlt:
+      'AI Email Agent client frontend showing intelligent email automation',
     adminImage: aiAdmin,
+    adminImageAlt:
+      'AI Email Agent admin dashboard showing email management and classification',
   },
 
-  {
-    type: 'Personal Project · Live',
-    title: 'DataBundle Marketplace – E-Commerce Platform',
-    desc: 'Full-stack e-commerce platform for purchasing mobile data bundles across MTN, Vodafone, AirtelTigo, and Glo in Ghana. Features user authentication, Paystack payment integration, real-time stock management, and instant data delivery. Admin dashboard for managing bundles, orders, and users.',
-    github: 'https://github.com/Ernestkyei/server',
-    live: 'https://client-0eyf.onrender.com',
-    image: databundleImg,
-    imageAlt:
-      'DataBundle marketplace showing mobile data bundles for MTN, Vodafone, AirtelTigo, and Glo',
-  },
+ {
+  type: 'Personal Project · Live',
+  title: 'DataBundle Marketplace – E-Commerce Platform',
+  desc: 'Full-stack e-commerce platform for purchasing mobile data bundles across MTN, Vodafone, AirtelTigo, and Glo in Ghana. Features user authentication, Paystack payment integration, real-time stock management, and instant data delivery. Admin dashboard for managing bundles, orders, and users.',
+  github: 'https://github.com/Ernestkyei/server',
+  live: 'https://client-0eyf.onrender.com',
+  admin: 'https://admin-wt9c.onrender.com/auth',
+  image: databundleImg,
+  imageAlt:
+    'DataBundle marketplace showing mobile data bundles for MTN, Vodafone, AirtelTigo, and Glo',
+  adminImage: Admindatabundle,
+  adminImageAlt:
+    'DataBundle Marketplace admin dashboard showing bundles, orders, and users',
+},
 
   {
     type: 'Personal Project · Live',
@@ -39,8 +48,11 @@ const projects = [
     desc: 'Complete self-paced mentoring platform where users learn through structured modules with dedicated mentor avatars. Features user authentication, video player with pictorial tutor, module completion tracking, streak counter, and milestone achievements.',
     github: 'https://github.com/Ernestkyei/mentorship-frontend',
     live: 'https://mentorship-frontend-e05o.onrender.com',
+
     image: mentorpathImg,
-    imageAlt: 'MentorPath platform showing course player with mentor avatar',
+
+    imageAlt:
+      'MentorPath platform showing course player with mentor avatar',
   },
 
   {
@@ -50,32 +62,39 @@ const projects = [
     github: 'https://github.com/Ernestkyei?tab=repositories',
     live: 'https://swifttrack-jlib.onrender.com',
     image: trackImg,
-    imageAlt: 'Package delivery tracking system with QR code scanning',
+
+    imageAlt:
+      'Package delivery tracking system with QR code scanning',
   },
 
   {
-    type: 'Personal Project',
-    title: 'Full-Stack Messaging Platform',
-    desc: 'Real-time messaging application with user-facing frontend and full admin dashboard. Features user management, message logs, JWT authentication, and automated password reset via email.',
-    github: 'https://github.com/Ernestkyei/message-app',
-    live: 'https://message-app-rpgx.onrender.com/',
-    image: messageImg,
-    imageAlt: 'Messaging platform dashboard showing real-time chat interface',
-  },
+  type: 'Personal Project · Live',
+  title: 'Full-Stack Messaging Platform',
+  desc: 'Real-time messaging application with a user-facing frontend and full admin dashboard. Features real-time chat, user management, message logs, JWT authentication, automated password reset via email, and administrative controls for monitoring users and messaging activity.',
+  github: 'https://github.com/Ernestkyei/message-app',
+  live: 'https://message-app-rpgx.onrender.com/',
+  admin: 'https://message-app-admin-panel.onrender.com',
+  image: messageImg,
+  imageAlt: 'Messaging platform showing real-time chat interface',
+  adminImage: adminDashboardMessagingApp,
+  adminImageAlt: 'Messaging application admin dashboard showing user and message management',
+},
 
   {
     type: 'Team Project · Live',
     title: 'JobBridge — Job Search Platform',
     desc: 'Job matching platform with job seeker and employer dashboards, advanced search, application tracking, admin moderation panel, and role-based access control. Deployed on Microsoft Azure.',
+
     github: 'https://github.com/Ernestkyei/jobbridge',
     live: 'https://jobbridge-team06-d5agcya8cka3agd8.northcentralus-01.azurewebsites.net',
     image: jobbridgeImg,
-    imageAlt: 'JobBridge job search platform interface showing job listings',
+    imageAlt:
+      'JobBridge job search platform interface showing job listings',
   },
 ];
 
 const Projects = () => {
-  const [setHoveredIndex] = useState(null);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const handleImageError = (e) => {
     e.target.src =
@@ -83,7 +102,10 @@ const Projects = () => {
   };
 
   return (
-    <section className="py-20 px-6 max-w-6xl mx-auto" id="projects">
+    <section
+      className="py-20 px-6 max-w-6xl mx-auto"
+      id="projects"
+    >
       <div className="mb-10">
         <span className="text-blue-400 text-sm tracking-widest uppercase font-medium">
           Projects
@@ -104,7 +126,10 @@ const Projects = () => {
             key={p.title}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: index * 0.05 }}
+            transition={{
+              duration: 0.4,
+              delay: index * 0.05,
+            }}
             viewport={{ once: true }}
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
@@ -113,16 +138,30 @@ const Projects = () => {
             {/* Image */}
             <div className="relative w-full h-44 bg-gray-800 overflow-hidden">
               <img
-                src={p.image}
-                alt={p.imageAlt || p.title}
+                src={
+                  hoveredIndex === index && p.adminImage
+                    ? p.adminImage
+                    : p.image
+                }
+                alt={
+                  hoveredIndex === index && p.adminImage
+                    ? p.adminImageAlt || `${p.title} admin dashboard`
+                    : p.imageAlt || p.title
+                }
                 onError={handleImageError}
-                className="object-cover w-full h-full"
+                className="object-cover w-full h-full transition-all duration-300"
               />
 
               {p.live && (
                 <span className="absolute top-2 right-2 bg-green-500/90 text-white text-xs px-2 py-0.5 rounded-full flex items-center gap-1">
                   <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
                   Live
+                </span>
+              )}
+
+              {p.adminImage && hoveredIndex === index && (
+                <span className="absolute bottom-2 left-2 bg-purple-500/90 text-white text-xs px-2 py-0.5 rounded-full">
+                  Admin Dashboard
                 </span>
               )}
             </div>
